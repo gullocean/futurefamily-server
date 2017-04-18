@@ -71,5 +71,39 @@ export default ({ config, db }) => {
     })
   });
 
+  api.get('/v1/messages/latest', (req, res) => {
+    res.json([
+        {
+          isAdmin: false,
+          name: 'Alice Carey',
+          tag: 'Nurse',
+          time: '15:45',
+          content: 'Nulla vitae elit libero, a pharetra augue Nulla vitae elit libero…',
+          avatar: 'https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807__180.png'
+        }, {
+          isAdmin: true,
+          name: 'Admin',
+          tag: 'Missed Payment',
+          time: '15:45',
+          content: 'Nulla vitae elit libero, a pharetra augue Nulla vitae elit libero…',
+          avatar: 'https://cdn.pixabay.com/photo/2014/04/03/10/32/businessman-310819__180.png'
+        }, {
+          isAdmin: false,
+          name: 'Alice Carey',
+          tag: 'Nurse',
+          time: '15:45',
+          content: 'Nulla vitae elit libero, a pharetra augue Nulla vitae elit libero…',
+          avatar: 'https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807__180.png'
+        }, {
+          isAdmin: false,
+          name: 'Alice Carey',
+          tag: 'Nurse',
+          time: '15:45',
+          content: 'Nulla vitae elit libero, a pharetra augue Nulla vitae elit libero…',
+          avatar: 'https://cdn.pixabay.com/photo/2014/04/03/10/32/businessman-310819__180.png'
+        }
+      ])
+  });
+
   return api;
 }
