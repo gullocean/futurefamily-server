@@ -32,12 +32,12 @@ export default ({ config, db }) => {
 
   api.post('/v1/login/email', (req, res) => {
     res.json({
-      name: 'test name',
-      bday: '29th March 1975',
-      email: 'test@gmail.com',
-      address: '786 Lodgeville Road, Minneapolis, Minnesota, 55401',
-      phone: '612-277-5911',
-      avatar: 'https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807__180.png'
+      name    : 'test name',
+      bday    : '29th March 1975',
+      email   : 'test@gmail.com',
+      address : '786 Lodgeville Road, Minneapolis, Minnesota, 55401',
+      phone   : '612-277-5911',
+      avatar  : 'https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807__180.png'
     })
   });
 
@@ -67,42 +67,47 @@ export default ({ config, db }) => {
     console.log(req.headers);
 
     res.json({
-      success: result
+      name    : 'test name',
+      bday    : '29th March 1975',
+      email   : 'test@gmail.com',
+      address : '786 Lodgeville Road, Minneapolis, Minnesota, 55401',
+      phone   : '612-277-5911',
+      avatar  : 'https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807__180.png'
     })
   });
 
   api.get('/v1/messages/latest', (req, res) => {
     res.json([
         {
-          isAdmin: false,
-          name: 'Alice Carey',
-          tag: 'Nurse',
-          time: '15:45',
-          content: 'Nulla vitae elit libero, a pharetra augue Nulla vitae elit libero…',
-          avatar: 'https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807__180.png'
+          isAdmin : false,
+          name    : 'Alice Carey',
+          tag     : 'Nurse',
+          time    : '15:45',
+          content : 'Nulla vitae elit libero, a pharetra augue Nulla vitae elit libero…',
+          avatar  : 'https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807__180.png'
         }, {
-          isAdmin: true,
-          name: 'Admin',
-          tag: 'Missed Payment',
-          time: '15:45',
-          content: 'Nulla vitae elit libero, a pharetra augue Nulla vitae elit libero…',
-          avatar: 'https://cdn.pixabay.com/photo/2014/04/03/10/32/businessman-310819__180.png'
+          isAdmin : true,
+          name    : 'Admin',
+          tag     : 'Missed Payment',
+          time    : '15:45',
+          content : 'Nulla vitae elit libero, a pharetra augue Nulla vitae elit libero…',
+          avatar  : 'https://cdn.pixabay.com/photo/2014/04/03/10/32/businessman-310819__180.png'
         }, {
-          isAdmin: false,
-          name: 'Alice Carey',
-          tag: 'Nurse',
-          time: '15:45',
-          content: 'Nulla vitae elit libero, a pharetra augue Nulla vitae elit libero…',
-          avatar: 'https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807__180.png'
+          isAdmin : false,
+          name    : 'Alice Carey',
+          tag     : 'Nurse',
+          time    : '15:45',
+          content : 'Nulla vitae elit libero, a pharetra augue Nulla vitae elit libero…',
+          avatar  : 'https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807__180.png'
         }, {
-          isAdmin: false,
-          name: 'Alice Carey',
-          tag: 'Nurse',
-          time: '15:45',
-          content: 'Nulla vitae elit libero, a pharetra augue Nulla vitae elit libero…',
-          avatar: 'https://cdn.pixabay.com/photo/2014/04/03/10/32/businessman-310819__180.png'
+          isAdmin : false,
+          name    : 'Alice Carey',
+          tag     : 'Nurse',
+          time    : '15:45',
+          content : 'Nulla vitae elit libero, a pharetra augue Nulla vitae elit libero…',
+          avatar  : 'https://cdn.pixabay.com/photo/2014/04/03/10/32/businessman-310819__180.png'
         }
-      ])
+      ]);
   });
 
   return api;
