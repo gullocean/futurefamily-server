@@ -41,6 +41,12 @@ export default ({ config, db }) => {
     })
   });
 
+  api.post('/v1/logout/email', (req, res) => {
+    res.json({
+      code: 200
+    })
+  });
+
   api.post('/v1/signup/email', (req, res) => {
     let result = true;
     console.log(req.body);
