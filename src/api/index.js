@@ -35,12 +35,29 @@ export default ({ config, db }) => {
 
   api.post('/v1/login/email', (req, res) => {
     res.json({
-      name    : 'test name',
-      bday    : '29th March 1975',
-      email   : 'test@gmail.com',
-      address : '786 Lodgeville Road, Minneapolis, Minnesota, 55401',
-      phone   : '612-277-5911',
-      avatar  : 'https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807__180.png'
+      "auth": "eyJ1aWQiOjU3MzA4Mjc0NzY0MDIxNzZ9.C9kHKg.mfPKI-GZOywG2ZoBGst2DYGi6_0",
+      "user": {
+        address : '786 Lodgeville Road, Minneapolis, Minnesota, 55401',
+        avatar  : 'https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807__180.png',
+        bday    : '29th March 1975',
+        "comments": "testing",
+        "created": 1492612456.5384953,
+        "emails": [
+          {
+            "email": "1e54d582@opayq.com",
+            "verified": true
+          }
+        ],
+        "id": 5730827476402176,
+        "modified": 1492612522.4364216,
+        "name": "Jeff Nelson",
+        "phone": "+47 037 71 717",
+        "role": "standard",
+        "status": "new",
+        "subscribe": [
+          "newsletter"
+        ]
+      }
     });
   });
 
@@ -66,8 +83,11 @@ export default ({ config, db }) => {
     console.log(req.headers);
 
     res.json({
-      "auth": "eyJ1aWQiOjU3MzA4Mjc0NzY0MDIxNzZ9.C9kHKg.mfPKI-GZOywG2ZoBGst2DYGi6_0", 
+      "auth": "eyJ1aWQiOjU3MzA4Mjc0NzY0MDIxNzZ9.C9kHKg.mfPKI-GZOywG2ZoBGst2DYGi6_0",
       "user": {
+        address : '786 Lodgeville Road, Minneapolis, Minnesota, 55401',
+        avatar  : 'https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807__180.png',
+        bday    : '29th March 1975',
         "comments": "testing", 
         "created": 1492612456.5384953, 
         "emails": [
@@ -136,6 +156,10 @@ export default ({ config, db }) => {
           avatar  : 'https://cdn.pixabay.com/photo/2014/04/03/10/32/businessman-310819__180.png'
         }
       ]);
+  });
+
+  api.get('/get-building-data', (req, res) => {
+    res.json({ buildingData });
   });
 
   let stream = fs.createReadStream('./src/models/PNC_Buildings.csv');
