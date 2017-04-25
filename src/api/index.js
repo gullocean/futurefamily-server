@@ -9,7 +9,7 @@ import facets from './facets';
 
 export default ({ config, db }) => {
   let api = Router();
-  let token = "e30.C7Gp_A.pEappEKkeYDHsdVh2aXc6xhIimU";
+  let token = 'e30.C7Gp_A.pEappEKkeYDHsdVh2aXc6xhIimU';
   let buildingData = [];
 
   // Delay all responses for 1 second
@@ -35,27 +35,27 @@ export default ({ config, db }) => {
 
   api.post('/v1/login/email', (req, res) => {
     res.json({
-      "auth": "eyJ1aWQiOjU3MzA4Mjc0NzY0MDIxNzZ9.C9kHKg.mfPKI-GZOywG2ZoBGst2DYGi6_0",
-      "user": {
+      auth : 'eyJ1aWQiOjU3MzA4Mjc0NzY0MDIxNzZ9.C9kHKg.mfPKI-GZOywG2ZoBGst2DYGi6_0',
+      user : {
         address : '786 Lodgeville Road, Minneapolis, Minnesota, 55401',
         avatar  : 'https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807__180.png',
         bday    : '29th March 1975',
-        "comments": "testing",
-        "created": 1492612456.5384953,
-        "emails": [
+        comments: 'testing',
+        created : 1492612456.5384953,
+        emails  : [
           {
-            "email": "1e54d582@opayq.com",
-            "verified": true
+            email    : '1e54d582@opayq.com',
+            verified : true
           }
         ],
-        "id": 5730827476402176,
-        "modified": 1492612522.4364216,
-        "name": "Jeff Nelson",
-        "phone": "+47 037 71 717",
-        "role": "standard",
-        "status": "new",
-        "subscribe": [
-          "newsletter"
+        id      : 5730827476402176,
+        modified: 1492612522.4364216,
+        name    : 'Jeff Nelson',
+        phone   : '+47 037 71 717',
+        role    : 'standard',
+        status  : 'new',
+        subscribe: [
+          'newsletter'
         ]
       }
     });
@@ -83,27 +83,27 @@ export default ({ config, db }) => {
     console.log(req.headers);
 
     res.json({
-      "auth": "eyJ1aWQiOjU3MzA4Mjc0NzY0MDIxNzZ9.C9kHKg.mfPKI-GZOywG2ZoBGst2DYGi6_0",
-      "user": {
+      auth : 'eyJ1aWQiOjU3MzA4Mjc0NzY0MDIxNzZ9.C9kHKg.mfPKI-GZOywG2ZoBGst2DYGi6_0',
+      user : {
         address : '786 Lodgeville Road, Minneapolis, Minnesota, 55401',
         avatar  : 'https://cdn.pixabay.com/photo/2014/04/03/10/32/user-310807__180.png',
         bday    : '29th March 1975',
-        "comments": "testing", 
-        "created": 1492612456.5384953, 
-        "emails": [
+        comments: 'testing',
+        created : 1492612456.5384953,
+        emails  : [
           {
-            "email": "1e54d582@opayq.com", 
-            "verified": true
+            email    : '1e54d582@opayq.com',
+            verified : true
           }
-        ], 
-        "id": 5730827476402176, 
-        "modified": 1492612522.4364216, 
-        "name": "Jeff Nelson", 
-        "phone": "+47 037 71 717", 
-        "role": "standard", 
-        "status": "new", 
-        "subscribe": [
-          "newsletter"
+        ],
+        id      : 5730827476402176,
+        modified: 1492612522.4364216,
+        name    : 'Jeff Nelson',
+        phone   : '+47 037 71 717',
+        role    : 'standard',
+        status  : 'new',
+        subscribe: [
+          'newsletter'
         ]
       }
     });
@@ -166,11 +166,16 @@ export default ({ config, db }) => {
 
   csv
    .fromStream(stream, {headers : true})
-   .on("data", function(data){
+   .on('data', function(data){
+      data['Region']            = +data['Region'];
+      data['Latitude']          = +data['Latitude'];
+      data['Longitude']         = +data['Longitude'];
+      data['Seating Capacity']  = +(data['Seating Capacity'].replace(/\$|,/g, ''));
+
       buildingData.push(data);
    })
-   .on("end", function(){
-       // console.log("done");
+   .on('end', function(){
+       // console.log('done');
        // console.log(buildingData);
    });
 
